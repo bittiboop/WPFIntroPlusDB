@@ -1,6 +1,6 @@
 namespace Core.Entity;
 
-public class Author
+public class RentTime
 {
     
 }
