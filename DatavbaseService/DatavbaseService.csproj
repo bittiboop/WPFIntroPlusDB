@@ -7,6 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Folder Include="Abstractions\" />
+      <Folder Include="DBCommands\" />
       <Folder Include="DBProvider\" />
       <Folder Include="Models\" />
       <Folder Include="Repository\" />
