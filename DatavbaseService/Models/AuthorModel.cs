@@ -8,9 +8,9 @@ public class AuthorModel : IModel
     public string? Name { get; set; }
     public string? Surname { get; set; }
     public string? Country { get; set; }
-    public List<BookModel> Books { get; set; }
+    public List<LibraryModel>? Libraries { get; set; }
     
-    public AuthorModel() { Books = new List<BookModel>(); }
+    public AuthorModel() { Libraries = new List<LibraryModel>(); }
     public AuthorModel(int authorID, string name, string surname, string country)
     {
         AuthorID = authorID;
@@ -18,12 +18,12 @@ public class AuthorModel : IModel
         Surname = surname;
         Country = country;
     }
-    public AuthorModel(int authorID, string name, string surname, string country, List<BookModel> books)
+    public AuthorModel(int authorID, string name, string surname, string country, List<LibraryModel>? libraries)
     {
         AuthorID = authorID;
         Name = name;
         Surname = surname;
         Country = country;
-        Books = books;
+        Libraries = libraries;
     }
 }

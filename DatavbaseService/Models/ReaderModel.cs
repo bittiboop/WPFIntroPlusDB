@@ -1,3 +1,4 @@
+using Core.Entity;
 using DatavbaseService.Abstractions;
 
 namespace DatavbaseService.Models;
@@ -8,11 +9,11 @@ public class ReaderModel : IModel
     public string? Name { get; set; }
     public string? Surname { get; set; }
     public string? ReaderCardNumber { get; set; }
-    public List<BookModel> Books { get; set; }
+    public List<LibraryModel> Library { get; set; }
 
     public ReaderModel()
     {
-        Books = new List<BookModel>();
+        Library = new List<LibraryModel>();
     }
     
     public ReaderModel(int id, string name, string surname, string readerCardNumber)
@@ -21,15 +22,14 @@ public class ReaderModel : IModel
         Name = name;
         Surname = surname;
         ReaderCardNumber = readerCardNumber;
-        Books = new List<BookModel>();
     }
 
-    public ReaderModel(int id, string name, string surname, string readerCardNumber, List<BookModel> books)
+    public ReaderModel(int id, string name, string surname, string readerCardNumber, List<LibraryModel> libraries)
     {
         Id = id;
         Name = name;
         Surname = surname;
         ReaderCardNumber = readerCardNumber;
-        Books = books;
+        Library = libraries;
     }
 }
