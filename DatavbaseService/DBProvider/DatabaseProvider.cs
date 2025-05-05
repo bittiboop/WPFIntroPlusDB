@@ -4,18 +4,27 @@ using DatavbaseService.DBCommands;
 
 namespace DatavbaseService.DBProvider;
 
+
+
 public class DatabaseProvider
 {
-    public string ConnectionString { get; set; }
-    public DatabaseProvider(string connectionString)
-    {
-        ConnectionString = connectionString;
-    }
+    private string ConnectionString { get; set; }
+
+    [Obsolete("Obsolete")]
     public void CreateDatabase()
     {
-        using var connection = new SqlConnection(ConnectionString);
-        connection.Open();
-        var dbName = "Library";
-        connection.ExecuteAsync(DBCommands.CreateDbCommandWithNotExists(dbName));
+        try
+        {
+            using var connection = new SqlConnection(ConnectionString);
+            connection.Open();
+            var dbName = "LibraryDB";
+            connection.ExecuteAsync(DbCommands.CreateDbCommandWithNotExists(dbName));
+        }
+        catch (SqlException e)
+        {
+            throw new Exception(e.Message);
+        }
+        
     }
+    
 }
